@@ -1,9 +1,12 @@
 ---
+import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+const pageTitle = '首页'
 ---
-<body>
-<a href="/">index</a>
-<a href="/about/">about</a>
-</body>
+
+
+<Layout title={pageTitle}>
+    <h1>{pageTitle}</h1>
+</Layout>
 

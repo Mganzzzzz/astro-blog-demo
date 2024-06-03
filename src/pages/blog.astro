@@ -1,15 +1,55 @@
 ---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from "../components/Footer.astro";
 
+const pageTitle = "关于我";
+const identity = {
+    firstName: "莎拉",
+    country: "加拿大",
+    occupation: "技术撰稿人",
+    hobbies: ["摄影", "观鸟", "棒球"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+const skillColor = "navy";
+const fontWeight = 'bold'
+const textCase = 'uppercase'
+import Layout from "../layouts/Layout.astro";
 ---
-<body>
-<a href="/">index</a>
-<a href="/about/">about</a>
-<a href="/blog">blog</a>
+<Layout title={pageTitle}>
 
-<div>
-    <h1>blog</h1>
-    <div>
-        this is blog page
-    </div>
-</div>
-</body>
+    <h1>我的 博客</h1>
+    <p>这是我的 Astro 学习笔记</p>
+
+
+    {happy && <p>我非常乐意学习 Astro！</p>}
+
+    {finished && <p>我完成了这节教程！</p>}
+
+    {goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
+
+    <ul>
+        <li><a href="/posts/post-1/">文章 1</a></li>
+        <li><a href="/posts/post-2/">文章 2</a></li>
+        <li><a href="/posts/post-3/">文章 3</a></li>
+    </ul>
+
+    <p>以下是关于我的几个事实：</p>
+    <ul>
+        <li>我的名字是{identity.firstName}.</li>
+        <li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
+        {identity.hobbies.length >= 2 &&
+                <li>我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}</li>
+        }
+    </ul>
+    <p>我的技能是：</p>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+</Layout>
