@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
+import IndexHeader from '../components/home/IndexHeader.vue';
 import Card from '../components/Card.astro';
 const pageTitle = '首页'
 ---
@@ -8,5 +9,6 @@ const pageTitle = '首页'
 
 <Layout title={pageTitle}>
     <h1>{pageTitle}</h1>
+    <IndexHeader client:load />
 </Layout>
 
